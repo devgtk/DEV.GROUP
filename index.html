@@ -10,6 +10,47 @@
       <button class="mdc-icon-button material-icons mdc-top-app-bar__navigation-icon--unbounded">menu</button>
       <span class="mdc-top-app-bar__title">CPD-NU (App:Case "test.NAME_01")</span> </section>
     <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
+        ---
+title: Search
+description: 'Search this site'
+permalink: /search/
+layout: default
+tipue_search_active: true
+exclude_from_search: true
+css:
+  - /assets/css/search.css
+js:
+  - /assets/js/search/tipuesearch_content.js
+  - /assets/js/search/tipuesearch_set.js
+  - /assets/js/search/tipuesearch.min.js
+---
+
+<form action="{{ page.url | relative_url }}">
+  <div class="primary-search">
+    <input
+      type="text"
+      name="q"
+      id="tipue_search_input"
+      pattern=".{3,}"
+      title="At least 3 characters"
+      required
+    />
+    <button type="submit" class="h-c-button h-c-button--primary">
+      <div>Search</div>
+    </button>
+  </div>
+</form>
+
+<h3 class="search-results-header">Search results</h3>
+<div id="tipue_search_content"></div>
+
+<script>
+  $.when($.ready).then(() =>
+    $('#tipue_search_input').tipuesearch({
+      wholeWords: false,
+    })
+  );
+</script>
       <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded" aria-label="Download">file_download</button>
       <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded" aria-label="Print this page">print</button>
       <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded" aria-label="Bookmark this page">bookmark</button>
