@@ -18,4 +18,12 @@
  
 </header>
  
- <div class="mdc-top-app-bar--dense-fixed-adjust"></div></div>
+ <div class="mdc-top-app-bar--dense-fixed-adjust"><div id="content"></div>
+    <script>
+      function handleResponse(response) {
+        document.getElementById("content").innerHTML += "<h1>" + response.title + "</h1>" + response.content;
+      }
+    </script>
+    <script
+    src="https://www.googleapis.com/blogger/v3/blogs/3213900/posts/8398240586497962757?callback=handleResponse&key=YOUR-API-KEY"></script>
+  </div></div>
